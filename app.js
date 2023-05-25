@@ -1,5 +1,5 @@
 //Mailchimp api key
-// c7e8a4e465ef1547d4b1cf99c0087f4e-us9
+// 659581de7ff577aa67417d1cfa7adbbd-us9
 //List Id
 //0abe4ecd8f
 
@@ -38,12 +38,12 @@ app.post("/", function(req, res){
 
   var jsondata = JSON.stringify(data);
 
-  const url = `https://us9.api.mailchimp.com/3.0/lists/0abe4ecd8f`; 
+  const url = `https://us9.api.mailchimp.com/3.0/lists/${process.env.LIST_ID}`;
 
   const options = {
     method: "POST",
     body: data,
-    auth: "saeed:c7e8a4e465ef1547d4b1cf99c0087f4e-us9"
+    auth: process.env.API_KEY
   };
 
 
@@ -65,7 +65,7 @@ app.post("/", function(req, res){
 
   request.write(jsondata);
   request.end();
-  
+
 
 
 });
